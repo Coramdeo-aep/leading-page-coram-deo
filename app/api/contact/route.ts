@@ -14,9 +14,8 @@ export async function POST(request: Request) {
 
     // Criar cliente Supabase
     const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL || "https://yrisqrcazpgoorcpzsae.supabase.co",
-      process.env.SUPABASE_SERVICE_ROLE_KEY ||
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyaXNxcmNhenBnb29yY3B6c2FlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0ODk5ODM0MCwiZXhwIjoyMDY0NTc0MzQwfQ.Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8Ej8",
+     process.env.NEXT_PUBLIC_SUPABASE_URL!,
+     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
     )
 
     // Salvar dados na tabela de contatos
