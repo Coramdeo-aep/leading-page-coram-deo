@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   viewport: "width=device-width, initial-scale=1",
   themeColor: "#92400e",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -57,6 +57,12 @@ export default function RootLayout({
         <meta name="geo.placename" content="Caxias do Sul" />
         <meta name="geo.position" content="-29.169782;-51.179233" />
         <meta name="ICBM" content="-29.169782, -51.179233" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body className={inter.className}>
         <Suspense fallback={<div>Loading...</div>}>
