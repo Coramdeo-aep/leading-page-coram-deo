@@ -65,7 +65,7 @@ export default function Header() {
               href="#doacao"
               className="text-amber-800 hover:text-amber-600 font-medium transition-colors relative group font-montserrat"
             >
-              Doações
+              Associados
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
@@ -116,7 +116,7 @@ export default function Header() {
                 className="text-amber-800 hover:text-amber-600 font-medium transition-colors py-2 px-4 rounded-lg hover:bg-amber-50 font-montserrat"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Doações
+                Associados
               </Link>
               <Link
                 href="#contato"
