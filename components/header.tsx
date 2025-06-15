@@ -58,7 +58,7 @@ export default function Header() {
               href="#programas"
               className="text-amber-800 hover:text-amber-600 font-medium transition-colors relative group font-montserrat"
             >
-              Serviços
+              Ações Sociais
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
@@ -109,7 +109,7 @@ export default function Header() {
                 className="text-amber-800 hover:text-amber-600 font-medium transition-colors py-2 px-4 rounded-lg hover:bg-amber-50 font-montserrat"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Serviços
+                Ações Sociais
               </Link>
               <Link
                 href="#doacao"
