@@ -58,12 +58,6 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Ações Sociais</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <span className="text-amber-200">Programa de Bolsas</span>
-              </li>
-              <li>
-                <span className="text-amber-200">Palestras e Treinamentos</span>
-              </li>
-              <li>
                 <span className="text-amber-200">Eventos Educacionais</span>
               </li>
               <li>
