@@ -4,7 +4,7 @@ import { Resend } from "resend"
 export async function GET(request: Request) {
   try {
     // Inicializar o Resend com a chave API
-    const resend = new Resend("re_hrEKpqGm_EbMgXQuW2oMWyXW26w38beu5")
+    const resend = new Resend("re_JF32MeBu_4XrVZRCiLsvvnn68GnckMKHp")
 
     // Obter o email de destino da query string
     const { searchParams } = new URL(request.url)

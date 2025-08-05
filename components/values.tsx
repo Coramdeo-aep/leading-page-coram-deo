@@ -1,179 +1,117 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { Heart, Target, Award, Users, Handshake, Shield, MapPin, Star } from "lucide-react"
+import { Heart, Lightbulb, HandHeart, Home, Star, Sunrise } from "lucide-react"
+import Image from "next/image"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export default function Values() {
   useScrollAnimation()
-
   const values = [
     {
       icon: Heart,
-      title: "Cristocentrismo",
-      description:
-        "Jesus Cristo é o centro de nossa missão. Ele orienta nossos princípios, decisões e relacionamentos.",
+      title: "Amor que acolhe",
+      description: "Acolhemos com empatia, compaixão e cuidado, como Cristo acolheu a todos.",
+      verse: "João 13:34",
+      color: "bg-red-600",
     },
     {
-      icon: Target,
-      title: "Integralidade",
-      description:
-        "Educamos para a formação completa do ser humano — espiritual, intelectual, emocional, social e física — conforme os propósitos de Deus.",
+      icon: Lightbulb,
+      title: "Sabedoria que orienta",
+      description: "Buscamos discernimento para aplicar a verdade com entendimento e graça.",
+      verse: "Tiago 1:5",
+      color: "bg-blue-600",
     },
     {
-      icon: Award,
-      title: "Excelência com Propósito",
-      description: "Buscamos qualidade em tudo o que fazemos, com intencionalidade e foco na transformação de vidas.",
+      icon: HandHeart,
+      title: "Serviço que transforma",
+      description: "Educamos para servir ao próximo, à comunidade e ao Reino de Deus.",
+      verse: "Gálatas 5:13",
+      color: "bg-green-600",
     },
     {
-      icon: Users,
-      title: "Inclusão e Equidade",
-      description: "Acolhemos a diversidade com justiça, garantindo acesso e oportunidades iguais para todos.",
-    },
-    {
-      icon: Handshake,
-      title: "Parcerias Estratégicas",
-      description: "Caminhamos com famílias, igrejas e organizações para ampliar nosso impacto e cumprir nossa missão.",
-    },
-    {
-      icon: Shield,
-      title: "Transparência e Responsabilidade",
-      description: "Agimos com ética e integridade, prestando contas com clareza e compromisso com o bem comum.",
-    },
-    {
-      icon: MapPin,
-      title: "Engajamento Comunitário",
-      description: "Incentivamos a participação ativa da comunidade, fortalecendo vínculos, solidariedade e cidadania.",
+      icon: Home,
+      title: "Família que fortalece",
+      description: "Honramos o lar como ambiente de formação e proteção.",
+      verse: "Salmos 127:1-3",
+      color: "bg-purple-600",
     },
     {
       icon: Star,
-      title: "Valorização da Equipe",
-      description:
-        "Promovemos o cuidado, a valorização e a qualificação contínua de nossos colaboradores, reconhecendo seu papel essencial na missão institucional.",
+      title: "Excelência com propósito",
+      description: "Fazemos tudo com zelo, como para o Senhor.",
+      verse: "Colossenses 3:23",
+      color: "bg-amber-600",
+    },
+    {
+      icon: Sunrise,
+      title: "Esperança para o futuro",
+      description: "Cremos na transformação de vidas e culturas pelo evangelho.",
+      verse: "Romanos 15:13",
+      color: "bg-orange-600",
     },
   ]
 
   return (
-    <section className="py-16 md:py-20 scroll-animate" style={{ backgroundColor: "#FAF9F7" }}>
+    <section className="py-20 bg-gradient-to-br from-amber-50 to-orange-50 scroll-animate">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2
-            className="text-3xl md:text-4xl font-extrabold mb-4 scroll-animate"
-            style={{
-              fontFamily: "Montserrat, sans-serif",
-              color: "#4B2E1B",
-              fontWeight: 800,
-            }}
-          >
-            Nossos Valores
-          </h2>
-          <p
-            className="text-lg md:text-xl max-w-3xl mx-auto scroll-animate"
-            style={{
-              fontFamily: "Montserrat, sans-serif",
-              color: "#444444",
-              fontWeight: 400,
-              lineHeight: "1.6em",
-            }}
-          >
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-amber-900 mb-4 scroll-animate">Valores da Instituição</h2>
+          <p className="text-xl text-amber-700 max-w-3xl mx-auto scroll-animate">
             Nossos valores fundamentam cada ação e decisão, guiando-nos na missão de formar vidas com propósito e
             excelência cristã.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {values.map((value, index) => (
             <Card
               key={index}
-              className="bg-white border-gray-200 hover:shadow-lg transition-all duration-300 hover:border-[#D86629] scroll-animate group"
-              style={{ borderRadius: "12px" }}
+              className="bg-white border-amber-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 scroll-animate"
             >
-              <CardContent className="p-6 md:p-8">
-                <div className="flex items-start space-x-4">
-                  <div
-                    className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-[#D86629] transition-colors duration-300"
-                    style={{ backgroundColor: "#F5F5F5" }}
-                  >
-                    <value.icon
-                      className="w-6 h-6 group-hover:text-white transition-colors duration-300"
-                      style={{ color: "#D86629" }}
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <h3
-                      className="mb-2 scroll-animate"
-                      style={{
-                        fontFamily: "Montserrat, sans-serif",
-                        fontSize: "18px",
-                        fontWeight: 600,
-                        color: "#333333",
-                        lineHeight: "1.4em",
-                      }}
-                    >
-                      {value.title}
-                    </h3>
-                    <p
-                      className="scroll-animate"
-                      style={{
-                        fontFamily: "Montserrat, sans-serif",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        color: "#444444",
-                        lineHeight: "1.6em",
-                      }}
-                    >
-                      {value.description}
-                    </p>
-                  </div>
+              <CardContent className="p-6 text-center">
+                <div className={`w-16 h-16 ${value.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                  <value.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-amber-900 mb-3">{value.title}</h3>
+                <p className="text-amber-700 mb-4 leading-relaxed">{value.description}</p>
+                <div className="bg-gradient-to-r from-amber-100 to-orange-100 rounded-lg p-3">
+                  <div className="text-sm font-semibold text-amber-800">📖 {value.verse}</div>
                 </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="text-center mt-12 md:mt-16">
-          <div
-            className="rounded-3xl p-8 lg:p-12 text-white max-w-4xl mx-auto relative overflow-hidden scroll-animate"
-            style={{ background: "linear-gradient(135deg, #4B2E1B 0%, #D86629 100%)" }}
-          >
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-amber-800 to-orange-700 rounded-3xl p-8 lg:p-12 text-white max-w-4xl mx-auto relative overflow-hidden scroll-animate">
+            {/* Imagem de fundo com overlay */}
+            <div className="absolute inset-0 opacity-20">
+              <Image
+                src="/images/team-unity.jpg"
+                alt="União e trabalho em equipe"
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+            </div>
+
+            {/* Conteúdo sobre a imagem */}
             <div className="relative z-10">
-              <h3
-                className="text-2xl md:text-3xl font-bold mb-4"
-                style={{
-                  fontFamily: "Montserrat, sans-serif",
-                  fontWeight: 800,
-                }}
-              >
-                Viva Estes Valores Conosco
-              </h3>
-              <p
-                className="text-lg md:text-xl mb-8 opacity-90"
-                style={{
-                  fontFamily: "Montserrat, sans-serif",
-                  fontWeight: 400,
-                  lineHeight: "1.6em",
-                }}
-              >
+              <h3 className="text-3xl font-bold mb-4">Viva Estes Valores Conosco</h3>
+              <p className="text-xl mb-8 opacity-90">
                 Convidamos você a fazer parte desta jornada de transformação, onde cada valor se torna realidade na vida
                 de famílias e comunidades.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
-                  className="bg-white text-[#4B2E1B] px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-colors shadow-lg"
-                  style={{
-                    fontFamily: "Montserrat, sans-serif",
-                    fontWeight: 600,
-                  }}
+                  className="bg-white text-amber-800 px-8 py-4 rounded-lg font-semibold hover:bg-amber-50 transition-colors"
                   onClick={() => document.getElementById("programas")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   Conheça Nossos Serviços
                 </button>
                 <button
-                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-[#4B2E1B] transition-colors shadow-lg"
-                  style={{
-                    fontFamily: "Montserrat, sans-serif",
-                    fontWeight: 600,
-                  }}
+                  className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-amber-800 transition-colors"
                   onClick={() => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })}
                 >
                   Entre em Contato

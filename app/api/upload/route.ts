@@ -21,8 +21,9 @@ export async function POST(request: Request) {
 
     // Criar cliente Supabase
     const supabase = createClient(
-      "https://trpgnvhwfnqrvywqkdbu.supabase.co",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRycGdudmh3Zm5xcnZ5d3FrZGJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg5OTkzODMsImV4cCI6MjA2NDU3NTM4M30.iWhuc0SA30Mgu9qRjLFvmyOWP7aEEXPNIlz8RD4XXxA",
+      process.env.NEXT_PUBLIC_SUPABASE_URL || "https://yrisqrcazpgoorcpzsae.supabase.co",
+      process.env.SUPABASE_SERVICE_ROLE_KEY ||
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlyaXNxcmNhenBnb29yY3B6c2FlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg5OTgzNDAsImV4cCI6MjA2NDU3NDM0MH0.uqiPV4LO1ipcOy9lkSLo3ARBGrXtcDXmNtFjX1Tvnkk",
     )
 
     // Gerar nome único para o arquivo
