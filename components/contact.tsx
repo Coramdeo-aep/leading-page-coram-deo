@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, Clock, Users, Heart } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Users, Heart } from 'lucide-react'
 import { trackContact } from "@/lib/analytics"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
@@ -25,6 +25,7 @@ export default function Contact() {
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [submitError, setSubmitError] = useState("")
   const [emailWarning, setEmailWarning] = useState("")
+  const [privacyConsent, setPrivacyConsent] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -82,6 +83,8 @@ export default function Contact() {
     })
   }
 
+  const isFormValid = formData.name && formData.email && privacyConsent
+
   return (
     <section id="contato" className="scroll-animate py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,7 +100,7 @@ export default function Contact() {
           {/* Contact Form */}
           <Card className="scroll-animate shadow-xl order-1 lg:order-1">
             <CardHeader>
-              <CardTitle className="text-2xl text-amber-900 text-center">Faça Parte</CardTitle>
+              <CardTitle className="text-2xl text-amber-900 text-center">Fale Conosco</CardTitle>
             </CardHeader>
             <CardContent>
               {submitSuccess ? (
@@ -190,13 +193,40 @@ export default function Contact() {
 
                   {submitError && <div className="text-red-600 text-sm p-2 bg-red-50 rounded-md">{submitError}</div>}
 
+                  <div className="flex items-start space-x-3">
+                    <input
+                      type="checkbox"
+                      id="privacy-consent"
+                      checked={privacyConsent}
+                      onChange={(e) => setPrivacyConsent(e.target.checked)}
+                      required
+                      className="mt-1 h-4 w-4 text-amber-600 focus:ring-amber-500 border-gray-300 rounded"
+                    />
+                    <label htmlFor="privacy-consent" className="text-sm text-amber-700">
+                      Li e concordo com a{" "}
+                      <a
+                        href="/politica-de-privacidade"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-laranja-queimado hover:underline font-medium"
+                      >
+                        Política de Privacidade
+                      </a>
+                      . *
+                    </label>
+                  </div>
+
                   <Button
                     type="submit"
                     className="w-full bg-amber-800 hover:bg-amber-700 text-white py-3"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || !isFormValid}
                   >
                     {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
                   </Button>
+
+                  <p className="text-xs text-amber-600 text-center mt-2">
+                    Você será redirecionado para uma página segura do Stripe para concluir sua contribuição.
+                  </p>
 
                   <p className="text-sm text-amber-600 text-center">
                     * Campos obrigatórios. Responderemos em até 24 horas.

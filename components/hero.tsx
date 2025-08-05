@@ -4,49 +4,25 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export default function Hero() {
-  useScrollAnimation()
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const slides = [
     {
       image: "/images/slide-1.jpg",
-      title: (
-        <>
-          <span className="font-bold text-[#CE7725]">Transformando Vidas</span> através da{" "}
-          <span className="font-bold text-[#CE7725]">Educação Integral</span>
-        </>
-      ),
-      subtitle:
-        "Acreditamos que a educação baseada em princípios bíblicos é o caminho para formar cidadãos íntegros e transformar comunidades.",
-      cta: "Conheça Nossa Missão",
-      action: () => document.getElementById("sobre")?.scrollIntoView({ behavior: "smooth" }),
+      title: "Onde a Luz Encontra a Esperança",
+      subtitle: "Mais que aulas: uma jornada de direção, afeto e propósito",
     },
     {
       image: "/images/slide-2.jpg",
-      title: (
-        <>
-          Do <span className="font-bold text-[#CE7725]">amor ao próximo</span> nasce a{" "}
-          <span className="font-bold text-[#CE7725]">transformação</span>
-        </>
-      ),
-      subtitle: "Coragem, fé e compromisso social definem nossa missão com as crianças e famílias atendidas.",
-      cta: "Saiba Mais",
-      action: () => document.getElementById("programas")?.scrollIntoView({ behavior: "smooth" }),
+      title: "Educação que Transforma Vidas",
+      subtitle: "Formando crianças com caráter, valores e esperança viva",
     },
     {
       image: "/images/slide-3.jpg",
-      title: (
-        <>
-          <span className="font-bold text-[#CE7725]">Educação</span> com{" "}
-          <span className="font-bold text-[#CE7725]">Propósito</span>
-        </>
-      ),
-      subtitle: "Nossa metodologia vai além do ensino: ela forma caráter, valores e esperança para o futuro.",
-      cta: "Fale Conosco",
-      action: () => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" }),
+      title: "Um Caminho com Propósito",
+      subtitle: "Mente, corpo e espírito em harmonia através da educação integral",
     },
   ]
 
@@ -58,14 +34,14 @@ export default function Hero() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
   }
 
-  // Auto-advance slides
+  // Auto-advance slides every 7 seconds
   useEffect(() => {
-    const timer = setInterval(nextSlide, 6000)
+    const timer = setInterval(nextSlide, 7000)
     return () => clearInterval(timer)
   }, [])
 
   return (
-    <section id="inicio" className="relative overflow-hidden scroll-animate" style={{ height: "110vh" }}>
+    <section id="inicio" className="relative h-screen overflow-hidden">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -78,32 +54,32 @@ export default function Hero() {
           <div className="absolute inset-0">
             <Image
               src={slide.image || "/placeholder.svg"}
-              alt={typeof slide.title === "string" ? slide.title : "Slide da Coram Deo"}
+              alt={`${slide.title} - Educação integral cristã transformando vidas na Coram Deo`}
               fill
               className="object-cover"
               priority={index === 0}
               sizes="100vw"
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
           </div>
 
           {/* Content */}
-          <div className="relative z-10 h-full flex items-end">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-24">
-              <div className="max-w-2xl">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-white mb-4 leading-tight font-montserrat">
+          <div className="relative z-10 h-full flex items-center">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3xl text-center mx-auto">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                   {slide.title}
                 </h1>
-                <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed font-montserrat font-light">
+                <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
                   {slide.subtitle}
                 </p>
                 <Button
                   size="lg"
-                  className="bg-[#CE7725] hover:bg-[#3A2420] text-white px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300 font-montserrat font-medium"
-                  onClick={slide.action}
+                  className="btn-primary text-lg px-10 py-5"
+                  onClick={() => document.getElementById("quemsomos")?.scrollIntoView({ behavior: "smooth" })}
                 >
-                  {slide.cta}
+                  Conheça a Coram Deo
                 </Button>
               </div>
             </div>
@@ -111,23 +87,21 @@ export default function Hero() {
         </div>
       ))}
 
-      {/* Navigation Arrows - Mais discretos */}
+      {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-3 top-1/2 transform -translate-y-1/2 z-20 bg-white/5 hover:bg-white/15 backdrop-blur-sm text-white p-2 rounded-full transition-all duration-300 border border-white/10"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
         aria-label="Slide anterior"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-3 top-1/2 transform -translate-y-1/2 z-20 bg-white/5 hover:bg-white/15 backdrop-blur-sm text-white p-2 rounded-full transition-all duration-300 border border-white/10"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300"
         aria-label="Próximo slide"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="w-6 h-6" />
       </button>
-
-      {/* Dots Indicator removido conforme solicitado */}
     </section>
   )
 }
